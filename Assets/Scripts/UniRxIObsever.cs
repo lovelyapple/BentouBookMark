@@ -11,6 +11,7 @@ public class UniRxIObsever : MonoBehaviour
     public enum RunCase
     {
         RunCompelet,
+        RunError,
     }
     public RunCase runCase;
     void Start()
@@ -32,6 +33,9 @@ public class UniRxIObsever : MonoBehaviour
             case RunCase.RunCompelet:
                 OnUpdateComplete();
                 break;
+            case RunCase.RunError:
+                OnUpdateError();
+                break;
         }
     }
     void OnUpdateComplete()
@@ -40,5 +44,10 @@ public class UniRxIObsever : MonoBehaviour
         subject.OnCompleted();
         subject.OnNext("won't excute");
     }
-
+    void OnUpdateError()
+    {
+        subject.OnNext(" hoge hoge");
+        subject.OnError(new Exception(" hoge error"));
+        subject.OnNext("won't excute");
+    }
 }
