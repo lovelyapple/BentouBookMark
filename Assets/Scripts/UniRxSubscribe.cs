@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
-public class UniRxTest : MonoBehaviour
+public class UniRxSubscribe : MonoBehaviour
 {
     Subject<string> sub = null;
     void Start()
